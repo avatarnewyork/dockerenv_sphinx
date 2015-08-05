@@ -31,7 +31,7 @@ describe "Dockerfile" do
 
   describe 'Sphinx Install' do
     describe command('searchd --help') do
-      its(:stdout) { should include('Sphinx 2.0.4') }
+      its(:stdout) { should include('Sphinx 2.0.8') }
     end
   end
   
