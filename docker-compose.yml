@@ -5,7 +5,7 @@ sphinx:
   links:
     - db
   volumes:
-    - /home/patrick/projects/dockerenv_sphinx/sphinxsearch:/etc/sphinx
+    - "sphinxsearch:/etc/sphinx"
 db:
   image: avatarnewyork/dockerenv-mysql:mysql50
   volumes:

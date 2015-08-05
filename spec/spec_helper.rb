@@ -1,9 +1,9 @@
 require 'serverspec'
 
 if ENV['CIRCLECI']
-  require 'coveralls'
+#  require 'coveralls'
   require 'yarjuf'
 
-  Coveralls.wear!
+#  Coveralls.wear!
 end
 
