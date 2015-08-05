@@ -17,12 +17,12 @@ test:
     - docker-compose -f docker-compose.yml up -d db:
         timeout: 1200
     # import data
-    - mysql -uadmin --password='admin' -P3366 -h127.0.0.1 test < ~/dockerenv_sphinx/sphinxsearch/example.sql
+    - sleep 100; mysql -uadmin --password='admin' -P3366 -h127.0.0.1 test < ~/dockerenv_sphinx/sphinxsearch/example.sql
     # restart mysql / sphinx in background
     - docker-compose -f docker-compose.yml up -d:
         timeout: 1200
     # run test query
-    - mysql -h 0 -P 9306 -e "select * from example where match('mrs')" |grep '2747';
+    - sleep 15; mysql -h 0 -P 9306 -e "select * from example where match('mrs')" |grep '2747';
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -name "results.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
