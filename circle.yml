@@ -23,7 +23,7 @@ test:
         timeout: 1200
     # store query results / test
     - sleep 10; mysql -h 0 -P 9306 -X -e "select * from example where match('mrs')" > $CIRCLE_ARTIFACTS/sphinxresults.xml
-    - if [ $(grep -c '2747' $CIRCLE_ARTIFACTS/sphinxresults.xml) -ne 0 ]; then exit 1; fi
+    - if [ $(grep -c '2747' $CIRCLE_ARTIFACTS/sphinxresults.xml) -ne 1 ]; then exit 1; fi
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -name "results.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \
