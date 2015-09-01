@@ -29,7 +29,7 @@ sphinx:
   links:
     - db
   ports:
-    - "9306"
+    - "9312"
   volumes:
     - /var/www/website/sphinx:/etc/sphinx
 ```
