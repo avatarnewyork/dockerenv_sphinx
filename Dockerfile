@@ -8,7 +8,7 @@ RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noar
 
 # update / install
 RUN yum -y update
-RUN yum -y install mysql mysql-devel mysqlclient mysqlreport perl-DBD-MySQL expat-devel openssl openssl-devel
+RUN yum -y install initscripts mysql mysql-devel mysqlreport perl-DBD-MySQL expat-devel openssl openssl-devel
 
 #RUN rpm -Uvh http://sphinxsearch.com/files/sphinx-2.0.4-1.rhel5.x86_64.rpm
 RUN rpm -Uhv http://sphinxsearch.com/files/sphinx-2.0.4-1.rhel6.x86_64.rpm
