@@ -51,3 +51,38 @@ source main
 ```
 
 When you start the container, [run.sh](https://github.com/avatarnewyork/dockerenv_sphinx/blob/master/run.sh) will search and replace any variables with the appropriate link values and copy them over to the real sphinx.conf file and start sphinx (which uses the sphinx.conf file, not the sphinx.conf.source file).
+
+### Other Environment Variables
+the `run.sh` script will support any environment variables.  This means you can substitute ANY environment variable defined in your `sphinx.conf.source` file will a corasponding environment variable defined in your docker compose yml file.
+
+#### Example:
+Add $DB_NAME variable to substitute 
+
+yml
+```yaml
+sphinx:
+  image: avatarnewyork/dockerenv-sphinx
+  links:
+    - db
+  ports:
+    - "9312"
+  volumes:
+    - /var/www/website/sphinx:/etc/sphinx
+  environment:
+    - DB_NAME: mydbname
+```
+
+sphinx.conf.source
+```sphinx
+source main
+{
+	type                 = mysql
+
+	sql_host             = $WEB_DB_1_PORT_3306_TCP_ADDR
+	sql_user             = dbusername
+	sql_pass             = dbpassword
+	sql_db               = $DB_NAME
+	sql_port             = $WEB_DB_1_PORT_3306_TCP_PORT
+	mysql_connect_flags = 32
+}
+```
