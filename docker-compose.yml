@@ -7,7 +7,7 @@ sphinx:
   volumes:
     - "sphinxsearch:/etc/sphinx"
 db:
-  image: avatarnewyork/dockerenv-mysql:mysql50
+  image: avatarnewyork/dockerenv-mysql:percona56
   volumes:
     - /var/mysql/sphinxmysql:/var/lib/mysql
   ports:
