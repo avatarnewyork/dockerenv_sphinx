@@ -19,6 +19,7 @@ test:
     # import data
     - sleep 60; mysql -uadmin --password='admin' -P3366 -h127.0.0.1 test < ~/dockerenv_sphinx/sphinxsearch/example.sql
     # start / sphinx in background
+    - sudo killall searchd
     - docker-compose -f docker-compose.yml up -d --no-recreate:
         timeout: 1200
     # store query results / test
