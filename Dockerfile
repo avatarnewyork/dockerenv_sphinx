@@ -11,7 +11,7 @@ RUN yum -y update
 RUN yum -y install mysql mysql-devel mysqlclient mysqlreport perl-DBD-MySQL expat-devel openssl openssl-devel
 
 #RUN rpm -Uvh http://sphinxsearch.com/files/sphinx-2.0.4-1.rhel5.x86_64.rpm
-RUN rpm -Uhv http://sphinxsearch.com/files/sphinx-2.0.4-1.rhel6.x86_64.rpm
+RUN rpm -Uhv http://sphinxsearch.com/files/sphinx-2.2.11-2.rhel6.x86_64.rpm
 RUN yum -y install sphinx
 
 RUN mkdir /var/lib/sphinx/data
