@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl -H "Content-Type: application/json" --data '{"build": true}' -X POST $DOCKERHUB_TRIGGER_URL
+curl -H "Content-Type: application/json" --data '{"source_type": "Branch", "source_name": "'$CIRCLE_BRANCH'"}' -X POST $DOCKERHUB_TRIGGER_URL
