@@ -30,11 +30,11 @@ test:
     - find . -type f -name "results.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
 deployment:
-  master:
-    branch: [master]
+  2.2:
+    branch: ["2.2"]
     commands:
       - ./deploy.sh
-  2.2:
-    branch: [2.2]
+  master:
+    branch: [master]
     commands:
       - ./deploy.sh
